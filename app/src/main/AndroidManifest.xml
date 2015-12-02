@@ -26,7 +26,6 @@
         <activity
             android:name=".masuk.Kampus"
             android:windowSoftInputMode="stateVisible|adjustResize" />
-
         <activity
             android:name=".masuk.Jurusan"
             android:windowSoftInputMode="stateVisible|adjustResize" />
