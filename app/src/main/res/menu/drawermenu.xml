@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/menu_lihat_jadwal"
+        android:icon="@drawable/inbox"
+        android:title="Jadwal" />
+
+    <item
+        android:id="@+id/menu_lihat_masalah"
+        android:icon="@drawable/sent"
+        android:title="Masalah" />
+
+    <item
+        android:id="@+id/menu_mata_kuliah"
+        android:icon="@drawable/draft"
+        android:title="Mata Kuliah" />
+
+
+    <group
+        android:id="@+id/middle_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_invite"
+            android:icon="@drawable/spam"
+            android:title="Invite" />
+
+    </group>
+
+    <group
+        android:id="@+id/bottom_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_setting"
+            android:icon="@drawable/settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/menu_help"
+            android:icon="@drawable/help"
+            android:title="Help" />
+    </group>
+
+
+</menu>
