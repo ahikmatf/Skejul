@@ -12,4 +12,5 @@
     <color name="black">#000</color>
     <color name="orange">#FA0</color>
     <color name="white">#FFF</color>
+    <color name="cyan_500">#00BCD4</color>
 </resources>

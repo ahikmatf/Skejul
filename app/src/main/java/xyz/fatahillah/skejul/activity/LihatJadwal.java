@@ -1,8 +1,7 @@
-package xyz.fatahillah.skejul;
+package xyz.fatahillah.skejul.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,16 +9,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import xyz.fatahillah.skejul.fragments.DaftarMatkulFragment;
-import xyz.fatahillah.skejul.fragments.InviteFragment;
+import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.appinvite.InviteActivity;
 import xyz.fatahillah.skejul.fragments.LihatMasalahFragment;
-import xyz.fatahillah.skejul.fragments.SettingFragment;
 import xyz.fatahillah.skejul.fragments.TabFragment;
-import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
-import xyz.fatahillah.skejul.masuk.SplashScreen;
 
 /**
  * Created by root on 12/1/15.
@@ -62,8 +58,8 @@ public class LihatJadwal extends AppCompatActivity {
 
 
                 if (menuItem.getItemId() == R.id.menu_lihat_jadwal) {
-                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
-                    xfragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
+                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
                 }
 
                 if (menuItem.getItemId() == R.id.menu_lihat_masalah) {
@@ -73,25 +69,25 @@ public class LihatJadwal extends AppCompatActivity {
                 }
 
                 if (menuItem.getItemId() == R.id.menu_mata_kuliah) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new DaftarMatkulFragment()).commit();
+                    Intent intent = new Intent(LihatJadwal.this, MatkulTakenActivity.class);
+                    startActivity(intent);
 
                 }
 
                 if (menuItem.getItemId() == R.id.menu_invite) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new InviteFragment()).commit();
+                    Intent intent = new Intent(LihatJadwal.this, InviteActivity.class);
+                    startActivity(intent);
 
                 }
 
                 if (menuItem.getItemId() == R.id.menu_setting) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new SettingFragment()).commit();
+                    Intent intent = new Intent(LihatJadwal.this, SettingActivity.class);
+                    startActivity(intent);
 
                 }
 
                 if (menuItem.getItemId() == R.id.menu_help) {
-                    Intent intent = new Intent(LihatJadwal.this, SplashScreen.class);
+                    Intent intent = new Intent(LihatJadwal.this, HelpActivity.class);
                     startActivity(intent);
 
                 }
@@ -107,29 +103,45 @@ public class LihatJadwal extends AppCompatActivity {
          */
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
                 R.string.app_name);
+
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         mDrawerToggle.syncState();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.tambah_jadwal);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showTambahJadwalFragment();
-            }
-        });
+
 
     }
 
-
-
-
-    private void showTambahJadwalFragment() {
-        FragmentManager fm = getSupportFragmentManager();
-        TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
-        tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.plus_only, menu);
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        switch (id) {
+            case R.id.tb_add:
+                startActivity(new Intent(this, MatkulTakenActivity.class));
+                return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

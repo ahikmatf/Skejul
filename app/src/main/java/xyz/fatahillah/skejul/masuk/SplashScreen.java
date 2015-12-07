@@ -2,30 +2,26 @@ package xyz.fatahillah.skejul.masuk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import xyz.fatahillah.skejul.R;
 
 public class SplashScreen extends AppCompatActivity {
-
-    Thread timerThread = new Thread(){
-        public void run(){
-            try{
-                sleep(3000);
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }finally{
-                Intent intent = new Intent(SplashScreen.this, Kampus.class);
-                startActivity(intent);
-            }
-        }
-    };
+    static int SPLASH_DISPLAY_LENGTH = 2000;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
         setContentView(R.layout.activity_splash_screen);
-        timerThread.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent(SplashScreen.this, Kampus.class);
+                SplashScreen.this.startActivity(mainIntent);
+                SplashScreen.this.finish();
+            }
+        }, SPLASH_DISPLAY_LENGTH);
     }
 
 }

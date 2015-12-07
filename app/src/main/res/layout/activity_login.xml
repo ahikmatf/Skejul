@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 android:background="@color/blue_grey_700"
 android:orientation="vertical"
 android:weightSum="4"
-tools:context=".lain.MainActivity">
+    tools:context=".masuk.LoginActivity">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -30,8 +30,8 @@ tools:context=".lain.MainActivity">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="@string/title_text"
         android:gravity="center"
+        android:text="@string/title_text"
         android:textColor="@android:color/white"
         android:textSize="36sp" />
 

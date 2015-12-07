@@ -27,6 +27,19 @@ public class TambahJadwalFragment extends DialogFragment {
         // Required empty public constructor
     }
 
+    private static boolean isValidEmail(String email) {
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public static void setKeyboardFocus(final EditText primaryTextField) {
+        (new Handler()).postDelayed(new Runnable() {
+            public void run() {
+                primaryTextField.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 0, 0, 0));
+                primaryTextField.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 0, 0, 0));
+            }
+        }, 100);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,15 +52,15 @@ public class TambahJadwalFragment extends DialogFragment {
         View tambahJadwal = inflater.inflate(R.layout.fragment_tambah_jadwal, container, false);
         inputLayoutName = (TextInputLayout) tambahJadwal.findViewById(R.id.input_layout_name);
         inputLayoutEmail = (TextInputLayout) tambahJadwal.findViewById(R.id.input_layout_email);
-        inputLayoutPassword = (TextInputLayout) tambahJadwal.findViewById(R.id.input_layout_password);
+        //inputLayoutPassword = (TextInputLayout) tambahJadwal.findViewById(R.id.input_layout_password);
         inputName = (EditText) tambahJadwal.findViewById(R.id.input_name);
         inputEmail = (EditText) tambahJadwal.findViewById(R.id.input_email);
-        inputPassword = (EditText) tambahJadwal.findViewById(R.id.input_password);
-        btnSignUp = (Button) tambahJadwal.findViewById(R.id.btn_signup);
+        //inputPassword = (EditText) tambahJadwal.findViewById(R.id.input_password);
+        btnSignUp = (Button) tambahJadwal.findViewById(R.id.submit_tambah_jadwal);
 
         inputName.addTextChangedListener(new MyTextWatcher(inputName));
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
-        inputPassword.addTextChangedListener(new MyTextWatcher(inputPassword));
+//        inputPassword.addTextChangedListener(new MyTextWatcher(inputPassword));
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +73,6 @@ public class TambahJadwalFragment extends DialogFragment {
 
         return tambahJadwal;
     }
-
 
     /**
      * Validating form
@@ -119,19 +131,6 @@ public class TambahJadwalFragment extends DialogFragment {
         return true;
     }
 
-    private static boolean isValidEmail(String email) {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
-
-    public static void setKeyboardFocus(final EditText primaryTextField) {
-        (new Handler()).postDelayed(new Runnable() {
-            public void run() {
-                primaryTextField.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 0, 0, 0));
-                primaryTextField.dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 0, 0, 0));
-            }
-        }, 100);
-    }
-
     /*private void requestFocus(View view) {
         if (view.requestFocus()) {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
@@ -160,9 +159,9 @@ public class TambahJadwalFragment extends DialogFragment {
                 case R.id.input_email:
                     validateEmail();
                     break;
-                case R.id.input_password:
-                    validatePassword();
-                    break;
+//                case R.id.input_password:
+//                    validatePassword();
+//                    break;
             }
         }
     }

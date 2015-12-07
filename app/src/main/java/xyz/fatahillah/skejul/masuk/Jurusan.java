@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import xyz.fatahillah.skejul.LihatJadwal;
 import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.activity.LihatJadwal;
 
 public class Jurusan extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,7 +29,7 @@ public class Jurusan extends AppCompatActivity implements View.OnClickListener {
 
             case R.id.submit_jurusan:
                 startActivity(new Intent(Jurusan.this, LihatJadwal.class));
-                break;
+                finish();
 
         }
     }

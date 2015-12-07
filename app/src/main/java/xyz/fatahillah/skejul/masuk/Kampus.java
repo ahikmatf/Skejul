@@ -25,6 +25,7 @@ public class Kampus extends AppCompatActivity {
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), Jurusan.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
