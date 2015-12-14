@@ -16,6 +16,7 @@ import xyz.fatahillah.skejul.R;
 import xyz.fatahillah.skejul.appinvite.InviteActivity;
 import xyz.fatahillah.skejul.fragments.LihatMasalahFragment;
 import xyz.fatahillah.skejul.fragments.TabFragment;
+import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
 
 /**
  * Created by root on 12/1/15.
@@ -31,6 +32,18 @@ public class LihatJadwal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_jadwal);
+
+//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_mon);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        final RecyclerAdapter recyclerAdapter = new RecyclerAdapter(list);
+//        recyclerView.setAdapter(recyclerAdapter);
+//
+//        ImageButton fabButton = (ImageButton) findViewById(R.id.fab_image_button);
+//        fabButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                recyclerAdapter.addItem("List Item " + recyclerAdapter.getItemCount());
+//                recyclerAdapter.notifyDataSetChanged();
 
         /**
          *Setup the DrawerLayout and NavigationView
@@ -135,8 +148,9 @@ public class LihatJadwal extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.tb_add:
-                startActivity(new Intent(this, MatkulTakenActivity.class));
-                return true;
+                FragmentManager fm = getSupportFragmentManager();
+                TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
+                tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
         }
 
 

@@ -24,8 +24,6 @@ public class SeninAdapter extends RecyclerView.Adapter<JadwalViewHolder> {
         @Override
         public void onClick(View v) {
 
-//            JadwalViewHolder vholder = (JadwalViewHolder) v.getTag();
-//            int position = vholder.getPosition();
 
             Snackbar.make(v, "Mantap", Snackbar.LENGTH_SHORT).show();
 
@@ -35,12 +33,6 @@ public class SeninAdapter extends RecyclerView.Adapter<JadwalViewHolder> {
     public SeninAdapter(Activity context) {
         this.context = context;
 
-        /*switch (layout) {
-            case 0: this.context = context;
-                inflater = LayoutInflater.from(context);
-        }*/
-       /* Bundle extras = context.getIntent().getExtras();
-        int waw = extras.getInt("LayNo");*/
 
         inflater = LayoutInflater.from(context);
 
@@ -70,4 +62,5 @@ public class SeninAdapter extends RecyclerView.Adapter<JadwalViewHolder> {
     public int getItemCount() {
         return senin.length;
     }
+
 }

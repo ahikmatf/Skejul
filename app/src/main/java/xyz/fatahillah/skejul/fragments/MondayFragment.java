@@ -38,6 +38,11 @@ public class MondayFragment extends Fragment {
         //mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+//        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_mon);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        final RecyclerAdapter recyclerAdapter = new RecyclerAdapter(list);
+//        mRecyclerView.setAdapter(recyclerAdapter);
+
         return rootView;
     }
 

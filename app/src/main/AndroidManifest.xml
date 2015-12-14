@@ -21,13 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".masuk.LoginActivity" />
+        <activity
+            android:name=".masuk.LoginActivity"
+            android:parentActivityName=".masuk.Jurusan" />
         <activity android:name=".activity.LihatJadwal" />
         <activity
             android:name=".masuk.Kampus"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".masuk.Jurusan"
+            android:parentActivityName=".masuk.Kampus"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".appinvite.InviteActivity"
@@ -62,6 +65,7 @@
         <activity
             android:name=".activity.MatkulTakenActivity"
             android:parentActivityName=".activity.LihatJadwal" />
+
     </application>
 
 </manifest>

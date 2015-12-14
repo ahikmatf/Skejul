@@ -3,6 +3,7 @@ package xyz.fatahillah.skejul.fragments;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.text.Editable;
@@ -65,7 +66,8 @@ public class TambahJadwalFragment extends DialogFragment {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                submitForm();
+                //submitForm();
+                Snackbar.make(view, "Mantap", Snackbar.LENGTH_SHORT).show();
             }
         });
 
@@ -90,7 +92,7 @@ public class TambahJadwalFragment extends DialogFragment {
             return;
         }
 
-        //Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();
     }
 
     private boolean validateName() {
@@ -100,13 +102,31 @@ public class TambahJadwalFragment extends DialogFragment {
             return false;
         } else {
             inputLayoutName.setErrorEnabled(false);
+//            EditText edit =  (EditText) findViewById(R.id.text_xyz);
+//            EditText a = (EditText) inputName.getText();
+//            Bundle args = new Bundle();
+//            args.putString("index", a);
+//            f.setArguments(args);
+//            return f;
+
+
         }
 
         return true;
     }
 
     private boolean validateEmail() {
-        String email = inputEmail.getText().toString().trim();
+        if (inputEmail.getText().toString().trim().isEmpty()) {
+            inputLayoutEmail.setError(getString(R.string.err_msg_email));
+            setKeyboardFocus(inputEmail);
+            return false;
+        } else {
+            inputLayoutEmail.setErrorEnabled(false);
+        }
+
+        return true;
+
+        /*String email = inputEmail.getText().toString().trim();
 
         if (email.isEmpty() || !isValidEmail(email)) {
             inputLayoutEmail.setError(getString(R.string.err_msg_email));
@@ -116,7 +136,7 @@ public class TambahJadwalFragment extends DialogFragment {
             inputLayoutEmail.setErrorEnabled(false);
         }
 
-        return true;
+        return true;*/
     }
 
     private boolean validatePassword() {
@@ -165,4 +185,6 @@ public class TambahJadwalFragment extends DialogFragment {
             }
         }
     }
+
+
 }

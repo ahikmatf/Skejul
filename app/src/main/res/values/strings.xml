@@ -77,5 +77,6 @@
 
     <string name="google_play_services_error">Google Play Services Error</string>
     <string name="title_activity_sample">Sample</string>
+    <string name="jam_mulai">Jam Mulainya</string>
 
 </resources>

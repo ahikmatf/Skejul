@@ -16,6 +16,7 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
@@ -41,12 +42,7 @@ public class HelpActivity extends AppCompatActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-//            case R.id.tb_setting:
-//                startActivity(new Intent(this, SettingActivity.class));
-//                return true;
-//            case R.id.tb_add:
-//                startActivity(new Intent(this, MatkulTakenActivity.class));
-//                return true;
+
         }
 
 

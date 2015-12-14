@@ -2,6 +2,7 @@ package xyz.fatahillah.skejul.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.View;
 
 import xyz.fatahillah.skejul.R;
 import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
+import xyz.fatahillah.skejul.fragments.TimePickerFragment;
 
 public class MatkulTakenActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -72,5 +74,10 @@ public class MatkulTakenActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
         tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 }

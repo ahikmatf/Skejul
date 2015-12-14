@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NavUtils;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +29,8 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
-import xyz.fatahillah.skejul.LihatJadwalOld;
 import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.activity.LihatJadwal;
 
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener,
@@ -35,17 +39,14 @@ public class LoginActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener {
 
     private static final String TAG = "LoginActivity";
-
     /* RequestCode for resolutions involving sign-in */
     private static final int RC_SIGN_IN = 1;
-
     /* RequestCode for resolutions to get GET_ACCOUNTS permission on M */
     private static final int RC_PERM_GET_ACCOUNTS = 2;
-
     /* Keys for persisting instance variables in savedInstanceState */
     private static final String KEY_IS_RESOLVING = "is_resolving";
     private static final String KEY_SHOULD_RESOLVE = "should_resolve";
-
+    private Toolbar toolbar;
     /* Client for accessing Google APIs */
     private GoogleApiClient mGoogleApiClient;
 
@@ -97,6 +98,37 @@ public class LoginActivity extends AppCompatActivity implements
                 .addScope(new Scope(Scopes.EMAIL))
                 .build();
         // [END create_google_api_client]
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.back_only, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        switch (id) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void updateUI(boolean isSignedIn) {
@@ -369,7 +401,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     //biar masuk ke lihat jadwal
     private void lihatJadwal () {
-        startActivity(new Intent(LoginActivity.this, LihatJadwalOld.class));
+        startActivity(new Intent(LoginActivity.this, LihatJadwal.class));
     }
 }
 

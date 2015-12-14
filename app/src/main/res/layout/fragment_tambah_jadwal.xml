@@ -38,37 +38,52 @@
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
-        <!--<android.support.design.widget.TextInputLayout
-            android:id="@+id/input_layout_password"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_jam_mulai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_password"
+                android:id="@+id/btn_jam_mulai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="pasew"
-                android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>-->
+                android:hint="Jam Mulai, formatnya JJ:MM"
+                android:inputType="textEmailAddress"
+                android:onClick="showTimePickerDialog" />
+        </android.support.design.widget.TextInputLayout>
 
-        <LinearLayout
+
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
             <Button
+                android:id="@+id/btn_jam_mulai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Jam mulai" />
+                android:text="Jam mulai"
+                android:onClick="showTimePickerDialog"/>
 
-            <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="24sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="24dp"
+                android:text="@string/jam_mulai"
+                android:id="@+id/jam_mulainya"
+                />
+
+            &lt;!&ndash;<Button
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Jam beres"/>
-        </LinearLayout>
+                android:text="Jam beres"/>&ndash;&gt;
+        </LinearLayout>-->
 
         <Button
             android:id="@+id/submit_tambah_jadwal"
