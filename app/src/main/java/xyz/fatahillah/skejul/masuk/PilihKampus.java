@@ -12,30 +12,42 @@ import android.widget.Button;
 
 import xyz.fatahillah.skejul.R;
 
-public class Jurusan extends AppCompatActivity implements View.OnClickListener {
+public class PilihKampus extends AppCompatActivity {
 
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jurusan);
+        setContentView(R.layout.activity_kampus);
 
-        Button clickButton = (Button) findViewById(R.id.submit_jurusan);
-        clickButton.setOnClickListener(this);
 
+        Button button = (Button) findViewById(R.id.submit_kampus);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //Create the intent to start another activity
+                Intent intent = new Intent(view.getContext(), PilihJurusan.class);
+                startActivity(intent);
+
+
+            }
+        });
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Masukkan Nama Kampus");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.back_only, menu);
-        return true;
+        return false;
     }
 
     @Override
@@ -55,16 +67,5 @@ public class Jurusan extends AppCompatActivity implements View.OnClickListener {
 
 
         return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-
-            case R.id.submit_jurusan:
-                startActivity(new Intent(Jurusan.this, LoginActivity.class));
-
-        }
     }
 }

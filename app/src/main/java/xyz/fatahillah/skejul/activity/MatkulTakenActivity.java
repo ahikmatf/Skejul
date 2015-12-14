@@ -1,7 +1,7 @@
 package xyz.fatahillah.skejul.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import xyz.fatahillah.skejul.R;
-import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
+import xyz.fatahillah.skejul.fragments.TambahMatkulFragment;
 import xyz.fatahillah.skejul.fragments.TimePickerFragment;
 
 public class MatkulTakenActivity extends AppCompatActivity {
@@ -27,20 +27,14 @@ public class MatkulTakenActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Mata Kuliah Taken");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.tambah_jadwal);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showTambahJadwalFragment();
-            }
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.back_only, menu);
+        getMenuInflater().inflate(R.menu.plus_only, menu);
         return true;
 
 
@@ -58,6 +52,10 @@ public class MatkulTakenActivity extends AppCompatActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
+            case R.id.tb_add:
+                FragmentManager fm = getSupportFragmentManager();
+                TambahMatkulFragment tambahMatkulFragment = new TambahMatkulFragment();
+                tambahMatkulFragment.show(fm, "fragment_tambah_jadwal");
 //            case R.id.tb_setting:
 //                startActivity(new Intent(this, SettingActivity.class));
 //                return true;
@@ -70,12 +68,16 @@ public class MatkulTakenActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showTambahJadwalFragment() {
-        FragmentManager fm = getSupportFragmentManager();
-        TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
-        tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
-    }
+//    private void showTambahJadwalFragment() {
+//        FragmentManager fm = getSupportFragmentManager();
+//        TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
+//        tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
+//    }
 
+    public void onClickMatkul(View v) {
+        Intent intent = new Intent(this, TambahJadwal.class);
+        startActivity(intent);
+    }
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getSupportFragmentManager(), "timePicker");

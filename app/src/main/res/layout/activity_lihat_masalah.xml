@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.MatkulTakenActivity">
+    tools:context=".activity.LihatMasalah">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -31,11 +31,10 @@
         <TextView
             android:id="@+id/pr_tugas_detail"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/nama_dosen_detail"
             android:layout_marginTop="24dp"
             android:text="PR dan Tugas"
-
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -53,44 +52,33 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="4dp">
 
                 <TextView
-                    android:id="@+id/nama_matkul1"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="3"
-                    android:onClick="onClickMatkul"
-                    android:text="Mata Kuliah 1"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
+                    android:text="Nama PR"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:text="Ini adalah keterangan dari PR tersebut, datanya bisa panjang, relatif terhadap isian pengguna"
+                    android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/jam_mulai1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00:00"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-
-
-                    <TextView
-                        android:id="@+id/ruangan1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ruangan"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:text="Tanggal PR dikumpulkan"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -98,11 +86,10 @@
         <TextView
             android:id="@+id/kuis_ujian_detail"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/pr_tugas_detail"
-            android:layout_marginTop="70dp"
-
-
+            android:layout_marginTop="160dp"
+            android:text="Kuis dan Ujian"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -120,43 +107,32 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="4dp">
 
                 <TextView
-                    android:id="@+id/nama_matkul2"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Ujian"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="3"
-                    android:text="Mata Kuliah 2"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
+                    android:layout_marginTop="4dp"
+                    android:text="Ini adalah keterangan dari ujian tersebut, datanya bisa panjang, relatif terhadap isian pengguna"
+                    android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/jam_mulai2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00:00"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-
-
-                    <TextView
-                        android:id="@+id/ruangan2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ruangan"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:text="Tanggal PR dikumpulkan"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -164,9 +140,9 @@
         <TextView
             android:id="@+id/catatan_detail"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/kuis_ujian_detail"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="160dp"
             android:text="Catatan Tambahan"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -185,47 +161,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="4dp">
 
                 <TextView
-                    android:id="@+id/nama_matkul3"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="3"
-                    android:text="Mata Kuliah 3"
-                    android:textAlignment="center"
-                    android:textSize="30sp" />
+                    android:text="Nama Catatan"
+                    android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
-
-                    <TextView
-                        android:id="@+id/jam_mulai3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00:00"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-
-
-                    <TextView
-                        android:id="@+id/ruangan3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ruangan"
-                        android:textAlignment="center"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="4dp"
+                    android:text="Ini adalah keterangan dari catatan tersebut, datanya bisa panjang, relatif terhadap isian pengguna"
+                    android:textSize="20sp" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </RelativeLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>

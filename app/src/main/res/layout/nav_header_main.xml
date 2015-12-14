@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="190dp"
-    android:background="#555555"
+
     android:orientation="vertical">
 
     <ImageView
@@ -14,7 +14,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
-        android:background="#ffffff" />
+        android:background="#000" />
 
     <TextView
         android:id="@+id/username"
@@ -25,8 +25,8 @@
         android:layout_alignStart="@+id/profile_image"
         android:gravity="left"
         android:paddingBottom="4dp"
-        android:text="Comp. Sci. Tutorials"
-        android:textColor="#FFF"
+        android:text="Asep Hikmat F"
+
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -39,8 +39,8 @@
         android:layout_alignStart="@+id/username"
         android:layout_marginBottom="8dp"
         android:gravity="left"
-        android:text="user@host.com"
-        android:textColor="#fff"
+        android:text="user@email.com"
+
         android:textSize="14sp" />
 
 </RelativeLayout>

@@ -23,14 +23,14 @@
         </activity>
         <activity
             android:name=".masuk.LoginActivity"
-            android:parentActivityName=".masuk.Jurusan" />
+            android:parentActivityName=".masuk.PilihJurusan" />
         <activity android:name=".activity.LihatJadwal" />
         <activity
-            android:name=".masuk.Kampus"
+            android:name=".masuk.PilihKampus"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name=".masuk.Jurusan"
-            android:parentActivityName=".masuk.Kampus"
+            android:name=".masuk.PilihJurusan"
+            android:parentActivityName=".masuk.PilihKampus"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".appinvite.InviteActivity"
@@ -65,7 +65,15 @@
         <activity
             android:name=".activity.MatkulTakenActivity"
             android:parentActivityName=".activity.LihatJadwal" />
-
+        <activity
+            android:name=".activity.LihatMasalah"
+            android:parentActivityName=".activity.LihatJadwal" />
+        <activity
+            android:name=".activity.DetailActivity"
+            android:parentActivityName=".activity.LihatJadwal" />
+        <activity
+            android:name=".activity.TambahJadwal"
+            android:parentActivityName=".activity.DetailActivity" />
     </application>
 
 </manifest>

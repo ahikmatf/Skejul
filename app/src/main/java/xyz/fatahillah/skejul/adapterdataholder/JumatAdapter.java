@@ -2,13 +2,14 @@ package xyz.fatahillah.skejul.adapterdataholder;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.activity.DetailActivity;
 
 /**
  * Created by root on 12/5/15.
@@ -27,7 +28,9 @@ public class JumatAdapter extends RecyclerView.Adapter<JadwalViewHolder> {
 //            JadwalViewHolder vholder = (JadwalViewHolder) v.getTag();
 //            int position = vholder.getPosition();
 
-            Snackbar.make(v, "Mantap", Snackbar.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, DetailActivity.class);
+            context.startActivity(intent);
+            //Snackbar.make(v, "Mantap", Snackbar.LENGTH_SHORT).show();
 
         }
     };

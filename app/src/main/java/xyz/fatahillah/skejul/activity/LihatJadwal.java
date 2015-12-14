@@ -14,9 +14,7 @@ import android.view.MenuItem;
 
 import xyz.fatahillah.skejul.R;
 import xyz.fatahillah.skejul.appinvite.InviteActivity;
-import xyz.fatahillah.skejul.fragments.LihatMasalahFragment;
 import xyz.fatahillah.skejul.fragments.TabFragment;
-import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
 
 /**
  * Created by root on 12/1/15.
@@ -76,8 +74,8 @@ public class LihatJadwal extends AppCompatActivity {
                 }
 
                 if (menuItem.getItemId() == R.id.menu_lihat_masalah) {
-                    FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.containerView, new LihatMasalahFragment()).commit();
+                    Intent intent = new Intent(LihatJadwal.this, LihatMasalah.class);
+                    startActivity(intent);
 
                 }
 
@@ -119,6 +117,7 @@ public class LihatJadwal extends AppCompatActivity {
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Jadwal");
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
                 R.string.app_name);
 
@@ -148,9 +147,11 @@ public class LihatJadwal extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.tb_add:
-                FragmentManager fm = getSupportFragmentManager();
-                TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
-                tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
+//                FragmentManager fm = getSupportFragmentManager();
+//                TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
+//                tambahJadwalFragment.show(fm, "fragment_tambah_jadwal");
+                Intent intent = new Intent(LihatJadwal.this, MatkulTakenActivity.class);
+                startActivity(intent);
         }
 
 

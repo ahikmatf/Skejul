@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Silakan Login");
     }
 
     @Override

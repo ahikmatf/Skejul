@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activity.MatkulTakenActivity">
+    tools:context=".activity.TambahJadwal">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -62,8 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
-                    android:onClick="onClickMatkul"
-                    android:text="Mata Kuliah 1"
+                    android:text="Senin"
                     android:textAlignment="center"
                     android:textSize="30sp" />
 
@@ -71,8 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
+                    android:padding="2dp">
 
                     <TextView
                         android:id="@+id/jam_mulai1"
@@ -129,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
-                    android:text="Mata Kuliah 2"
+                    android:text="Selasa"
                     android:textAlignment="center"
                     android:textSize="30sp" />
 
@@ -137,8 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
+                    android:padding="2dp">
 
                     <TextView
                         android:id="@+id/jam_mulai2"
@@ -194,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="3"
-                    android:text="Mata Kuliah 3"
+                    android:text="Jum'at"
                     android:textAlignment="center"
                     android:textSize="30sp" />
 
@@ -202,8 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="2dp"
-                    android:visibility="gone">
+                    android:padding="2dp">
 
                     <TextView
                         android:id="@+id/jam_mulai3"

@@ -1,34 +1,35 @@
 package xyz.fatahillah.skejul.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.fragments.TambahJadwalFragment;
 
-public class SettingActivity extends AppCompatActivity {
-
+public class TambahJadwal extends AppCompatActivity {
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_tambah_jadwal);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Setting");
+        getSupportActionBar().setTitle("Mata Kuliah 1");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.back_only, menu);
+        getMenuInflater().inflate(R.menu.plus_only, menu);
         return true;
     }
 
@@ -42,14 +43,13 @@ public class SettingActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         switch (id) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-//            case R.id.tb_setting:
-//                startActivity(new Intent(this, SettingActivity.class));
-//                return true;
-//            case R.id.tb_add:
-//                startActivity(new Intent(this, MatkulTakenActivity.class));
-//                return true;
+                Intent intent = new Intent(this, DetailActivity.class);
+                startActivity(intent);
+            case R.id.tb_add:
+                FragmentManager fm = getSupportFragmentManager();
+                TambahJadwalFragment tambahJadwalFragment = new TambahJadwalFragment();
+                tambahJadwalFragment.show(fm, "fragment_tambah_masalah");
+
         }
 
 

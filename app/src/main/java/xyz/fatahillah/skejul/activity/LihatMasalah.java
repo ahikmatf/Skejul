@@ -1,6 +1,7 @@
 package xyz.fatahillah.skejul.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,27 +9,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import xyz.fatahillah.skejul.R;
+import xyz.fatahillah.skejul.fragments.TambahMasalahFragment;
 
-public class SettingActivity extends AppCompatActivity {
-
+public class LihatMasalah extends AppCompatActivity {
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+        setContentView(R.layout.activity_lihat_masalah);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Setting");
+        getSupportActionBar().setTitle("Masalah");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.back_only, menu);
+        getMenuInflater().inflate(R.menu.plus_only, menu);
         return true;
     }
 
@@ -44,12 +45,11 @@ public class SettingActivity extends AppCompatActivity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-//            case R.id.tb_setting:
-//                startActivity(new Intent(this, SettingActivity.class));
-//                return true;
-//            case R.id.tb_add:
-//                startActivity(new Intent(this, MatkulTakenActivity.class));
-//                return true;
+            case R.id.tb_add:
+                FragmentManager fm = getSupportFragmentManager();
+                TambahMasalahFragment tambahMasalahFragment = new TambahMasalahFragment();
+                tambahMasalahFragment.show(fm, "fragment_tambah_masalah");
+
         }
 
 

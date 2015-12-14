@@ -89,6 +89,7 @@ public class InviteActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Undang Teman");
     }
     // [END on_create]
 
