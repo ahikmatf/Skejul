@@ -10,3 +10,6 @@ Semoga dapat terus berlanjut.
 Asep Hikmat Fatahillah
 Teknik Telekomunikasi ITB
 18112028
+
+- [ ] Done
+- [x] Not Done
